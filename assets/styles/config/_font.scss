@@ -1,0 +1,193 @@
+@use "config" as config;
+
+:root {
+  --font-family-red-hat-display: 'Red Hat Display', sans-serif;
+  --font-family-open-sans: 'Open Sans', sans-serif;
+}
+
+.capitalize {
+  text-transform: capitalize !important;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+/**************/
+/*** Desktop and Mobile ***/
+/****Font :*****/
+/*** Red-hat-display ***/
+/*** Open-sans ***/
+/**************/
+
+.red-hat-58 {
+  font-weight: 700;
+  font-family: var(--font-family-red-hat-display);
+  font-size: clamp(50px, 5.4rem, 5.4rem);
+  line-height: 5.8rem;
+  letter-spacing: 0.54px;
+  @media #{config.$media-desktop-max} {
+    // red-hat-34
+    font-size: clamp(32px, 3.4rem, 3.4rem);
+    line-height: 3.6rem;
+    letter-spacing: -0.34px;
+  }
+}
+
+.red-hat-38 {
+  font-weight: 700;
+  font-family: var(--font-family-red-hat-display);
+  font-size: clamp(36px, 3.8rem, 3.8rem);
+  line-height: 4.2rem;
+  letter-spacing: -0.38px;
+  @media #{config.$media-desktop-max} {
+    // red-hat-26
+    font-size: clamp(24px, 2.6rem, 2.6rem);
+    line-height: 3rem;
+    letter-spacing: -0.26px;
+  }
+}
+
+.red-hat-28 {
+  font-weight: 700;
+  font-family: var(--font-family-red-hat-display);
+  font-size: clamp(26px, 2.8rem, 2.8rem);
+  line-height: 3.2rem;
+  letter-spacing: 0;
+  @media #{config.$media-desktop-max} {
+    // red-hat-22
+    font-size: clamp(20px, 2.2rem, 2.2rem);
+    line-height: 2.4rem;
+    letter-spacing: 0;
+  }
+
+
+}
+
+.red-hat-20 {
+  font-weight: 700;
+  font-family: var(--font-family-red-hat-display);
+  font-size: clamp(18px, 2rem, 2rem);
+  line-height: 2.3rem;
+  letter-spacing: 0;
+  @media #{config.$media-desktop-max} {
+    // red-hat-18
+    font-size: clamp(16px, 1.8rem, 1.8rem);
+    line-height: 2.2rem;
+    letter-spacing: 0;
+  }
+}
+
+.red-hat-12m {
+  font-weight: 500;
+  font-family: var(--font-family-red-hat-display);
+  font-size: clamp(10px, 1.2rem, 1.2rem);
+  line-height: 2.3rem;
+  letter-spacing: 0;
+}
+
+//*** Font: Regular ***//
+
+.red-hat-24r {
+  font-weight: 400;
+  font-family: var(--font-family-red-hat-display);
+  font-size: clamp(22px, 2.4rem, 2.4rem);
+  line-height: 2.6rem;
+  letter-spacing: 0;
+  @media #{config.$media-desktop-max} {
+    // red-hat-20r
+    font-size: clamp(18px, 2rem, 2rem);
+    line-height: 2.2rem;
+    letter-spacing: 0;
+  }
+}
+
+.red-hat-15r {
+  font-weight: 400;
+  font-family: var(--font-family-red-hat-display);
+  font-size: clamp(13px, 1.5rem, 1.5rem);
+  line-height: 2.3rem;
+  letter-spacing: 0;
+  @media #{config.$media-desktop-max} {
+    // red-hat-15r
+    font-size: clamp(13px, 1.5rem, 1.5rem);
+    line-height: 2.3rem;
+    letter-spacing: 0;
+  }
+}
+
+.red-hat-12r {
+  font-weight: 400;
+  font-family: var(--font-family-red-hat-display);
+  font-size: clamp(10px, 1.2rem, 1.2rem);
+  line-height: 2.3rem;
+  letter-spacing: 0;
+  @media #{config.$media-desktop-max} {
+    // red-hat-12r
+    line-height: 5rem;
+
+  }
+}
+
+//*** Font: Open Sans ***//
+//*** Font: Bold ***//
+
+.open-sans-16 {
+  font-weight: 700;
+  font-family: var(--font-family-open-sans);
+  font-size: clamp(12px, 1.6rem, 1.6rem);
+  line-height: 1.6rem;
+  letter-spacing: 0;
+  @media #{config.$media-desktop-max} {
+    // open-sans-14
+    font-size: clamp(12px, 1.4rem, 1.4rem);
+    line-height: 2.2rem;
+    letter-spacing: 0;
+
+  }
+}
+
+//*** Font: Regular ***//
+//******************//
+.open-sans-16r {
+  font-weight: 400;
+  font-family: var(--font-family-open-sans);
+  font-size: clamp(12px, 1.6rem, 1.6rem);
+  line-height: 2rem;
+  letter-spacing: 0;
+  @media #{config.$media-desktop-max} {
+    // open-sans-14r
+    font-size: clamp(12px, 1.4rem, 1.4rem);
+    line-height: 2.2rem;
+    letter-spacing: 0;
+
+  }
+}
+
+.open-sans-14r {
+  font-weight: 400;
+  font-family: var(--font-family-open-sans);
+  font-size: clamp(12px, 1.4rem, 1.4rem);
+  line-height: 1.6rem;
+  letter-spacing: 0;
+  @media #{config.$media-desktop-max} {
+    // open-sans-12r
+    font-size: clamp(10px, 1.2rem, 1.2rem);
+    line-height: 1.8rem;
+    letter-spacing: 0;
+
+  }
+}
+
+.open-sans-12r {
+  font-weight: 400;
+  font-family: var(--font-family-open-sans);
+  font-size: clamp(10px, 1.2rem, 1.2rem);
+  line-height: 1.6rem;
+  letter-spacing: 0;
+}
+
+
+/*** endDesktop and MOBILE ***/
+/****************************/
+

@@ -1,0 +1,33 @@
+{% extends 'layout/layout.html.twig' %}
+{% block content_body_side %}
+    <div class="container-width container-margin-auto">
+        <div class="grid">
+            <div class="row">
+                {% include "components/breadcrumbs.html.twig" %}
+            </div>
+        </div>
+    </div>
+    <div class="background-img">
+    <div class="container-width container-margin-auto">
+        <div class="grid">
+            <div class="row">
+                <div class="col-xs-4">
+                    <img src="images/LRDM26-Vignette-Web.jpg" alt="">
+                </div>
+                <div class="col--xs-offset-1 col--xs-7">
+                    <div class="">
+                        <div class="container-numbers-date-card">
+                            <span class="card-puce-numbers">Numéro 26</span>
+                            <span class="card-in-row-date-description">Juin 2023</span>
+                        </div>
+                        <h2 class="card-in-row-title">
+                            <span class="card-in-row-title-text">Dossier thématique</span>
+                            <span class="h2toh1">Microbiotes et rhumatologie : un nouvel axe de recherche</span>
+                            {% include "components/button.html.twig" with {component:{colorButton:"green"}} %}
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content_body_side %}

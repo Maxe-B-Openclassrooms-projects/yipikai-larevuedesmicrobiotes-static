@@ -1,0 +1,238 @@
+/*!
+ * This file is part of the App package.
+ *
+ * (c) Yipikai <support@yipikai.studio>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+#main-content{
+  padding-top:7rem;
+  @media (max-width: config.$breakpoints-sm) {
+      padding: 15rem 2.7rem 0 2.6rem
+    }
+  }
+
+
+.main-section1-main {
+  @include flex.display(flex);
+  @include flex.direction(column);
+  @include flex.align-content(center);
+  max-width: 192rem;
+}
+
+
+.h1-main {
+  @extend .red-hat-58;
+  color: var(--dark-blue2);
+  line-height: 7.1rem !important;
+  text-align: center;
+  max-width: 113.1rem;
+  max-height: 12.9rem;
+}
+
+.h1-main > .main-subtitle-p-h1 {
+  @extend .red-hat-24r;
+  @include flex.display(flex);
+  @include flex.justify-content(center);
+  line-height: 4.2rem !important;
+}
+
+.highlight {
+  color: var(--light-blue1);
+}
+
+.main-section1-puce-title-buttons {
+  @include flex.display(flex);
+  @include flex.direction(column);
+  @include flex.justify-content(center);
+  @include flex.align-content(center);
+  align-items: center;
+  width: 74.8rem;
+  height: 23rem;
+}
+
+.main-section1-title2 {
+  @extend .red-hat-38;
+  line-height: 5.6rem !important;
+  color: var(--color-white);
+  max-width: 74.8rem;
+  text-align: center;
+  margin: 0.5rem auto 4rem auto;
+}
+
+.section1-content-buttons {
+  @include flex.display(flex);
+  @include flex.direction(row);
+  @include flex.justify-content(center);
+  margin: 0 auto;
+}
+
+.background-img {
+
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-image: url("../../../public/images/bg-bleu@2x.png");
+  min-height: 150rem;
+}
+.background-img-2 {
+  background-image: linear-gradient (bottom, rgba(255, 255, 255, 0) 20%, var(--dark-blue2) 20%, var(--dark-blue1) 20%);
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+
+  min-height: 50rem;
+}
+
+/******************/
+/*** Main part2 ***/
+/******************/
+
+.main-section2 {
+  @include flex.display(flex);
+  @include flex.direction(row);
+  background-color: var(--color-white);
+  margin: 0 12rem 12rem 12rem;
+  text-align: center;
+  min-width: 152rem;
+  gap: 15rem;
+}
+
+.section2 {
+  &-part1 {
+    @include flex.display(flex);
+    @include flex.direction(column);
+    text-align: left;
+    max-width: 65.2rem;
+  }
+
+  &-h2 {
+    @extend .red-hat-38;
+    color: var(--dark-blue2);
+    padding-bottom: 2rem;
+
+  }
+
+  &-h2-p-text {
+    padding-top: 0.5rem;
+    @extend .open-sans-16r;
+    line-height: 2.8rem !important;
+  }
+
+  &-sub-card {
+    max-width: 36.4rem;
+    @include flex.direction(column);
+    text-align: center;
+  }
+}
+
+
+.sub-card {
+  &-content-style {
+    @include global.radius(3rem);
+    background-color: var(--green-light1);
+    padding: 3rem 2rem 0.5rem 2rem;
+  }
+
+  &-h3 {
+    @extend .red-hat-28;
+    color: var(--dark-blue2);
+    margin-bottom: 2rem;
+  }
+
+  &-style-number {
+    @extend .red-hat-38;
+    color: var(--green2);
+    margin-bottom: 0.5rem;
+  }
+
+  &-style-text {
+    @extend .red-hat-20;
+    color: var(--dark-blue2);
+    max-width: 11.2rem;
+    padding: 0.5rem 1rem;
+    white-space: normal;
+  }
+
+  &-style-text-2 {
+    @extend .open-sans-12r;
+  }
+}
+
+
+.mini-card {
+  @include flex.display(flex);
+  @include flex.direction(column);
+  @include flex.justify-content(center);
+  @include flex.align-content(center);
+  @include flex.align-items(center);
+
+  &-sub-card {
+    @include flex.display(flex);
+    @include flex.direction(row);
+    @include flex.justify-content(center);
+    @include global.radius(2rem);
+    gap: 6rem;
+    background-color: var(--color-white);
+    position: relative;
+    padding: 2rem 0;
+  }
+
+
+  &-sub-card::before {
+    content: "";
+    @include flex.display(flex);
+    position: absolute;
+    top: 6%;
+    right: 50%;
+    height: calc(100% - 25px);
+    border: 1px solid var(--green-light1);
+  }
+}
+
+.sub-card {
+
+  &-h4-text-button {
+    @include flex.display(flex);
+    @include flex.direction(column);
+    @include flex.justify-content(center);
+    @include flex.align-content(center);
+    @include flex.align-items(center);
+  }
+
+  &-style-text-text {
+    @extend .open-sans-14r;
+    padding-bottom: 1rem;
+    max-width: 27rem;
+
+  }
+
+  &-style-text-part2 {
+    @extend .red-hat-20;
+    color: var(--dark-blue2);
+    padding: 2rem 2rem 0.2rem 2rem;
+    white-space: normal;
+  }
+}
+
+
+.pictoplus-style {
+  @include global.radius(2rem);
+  color: var(--green1);
+  background-color: var(--color-white);
+  font-size: 1.8rem;
+  padding: 0.2rem;
+}
+
+.section-part3-scientist-commitee {
+  @include flex.display(flex);
+  @include flex.direction(column);
+  @include flex.justify-content(center);
+  @include flex.align-content(center);
+  @include flex.align-items(center);
+}
+

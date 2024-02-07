@@ -1,0 +1,34 @@
+{% set component = (component|default({}))|merge({
+    name : "a-side-green-homepage",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+            <aside class="section2-sub-card margin-top-content-5">
+                <div class="sub-card-content-style">
+                    <h3 class="sub-card-h3">Accès gratuit</h3>
+                    <div class="mini-card-sub-card">
+                        <div class="mini-card">
+                            <span class="sub-card-style-number">3</span>
+                            <span class="sub-card-style-text">numéros par an</span>
+                            <span class="sub-card-style-text-2">sur les microbiotes</span>
+                        </div>
+
+                        <div class="mini-card">
+                            <span class="sub-card-style-number">21</span>
+                            <span class="sub-card-style-text">page dédiées</span>
+                            <span class="sub-card-style-text-2">sur les microbiotes</span>
+                        </div>
+                    </div>
+                    <div class="sub-card-h4-text-button">
+                        <h4 class="sub-card-style-text-part2">Dans chaques numéros</h4>
+                        <span class="sub-card-style-text-text">Un dossier thématique</span>
+                        <span class="sub-card-style-text-text">Un entretien avec un expert</span>
+                        <span class="sub-card-style-text-text">Des commentaires d’abstracts de congrès & de publications récentes</span>
+                        <span class="picto basic-pictoplus pictoplus-style"></span>
+                        <h5 class="sub-card-style-text-part2">Une alerte email</h5>
+                        <span class="sub-card-style-text-text">à chaque nouvelle publication</span>
+                    </div>
+                    {% include "components/button.html.twig" with {component:{colorButton:"green"}} %}
+                </div>
+            </aside>
+{% endblock component_content %}

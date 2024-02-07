@@ -1,0 +1,28 @@
+/*!
+ * This file is part of the App package.
+ *
+ * (c) Yipikai <support@yipikai.studio>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "config/config" as config;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap');
+@import "components/__import";
+@import "config/__import";
+@import "fonts/__import";
+@import "layout/__import";
+@import "libs/__import";
+@import "~@vivid-web/flexboxgrid-sass";
+
+html, body {
+  width: round(calc(100vw - (100vw - 100%)), 0.1px);
+  background-color: var(--color-white);
+}
+html {
+  font-size: .6945vw;
+  @media #{$media-desktop-max} {
+    font-size: 62.5%;
+  }
+}
+

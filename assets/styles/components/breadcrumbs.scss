@@ -1,0 +1,41 @@
+/*!
+ * This file is part of the App package.
+ *
+ * (c) Yipikai <support@yipikai.studio>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+
+
+.breadcrumb {
+  @include flex.display(flex);
+  @include flex.justify-content(center);
+  @include flex.align-items(center);
+  @include flex.align-content(center);
+  position: relative;
+}
+
+.bread-style {
+  @extend .open-sans-12r;
+  padding: 0 1rem;
+  & > a {
+    color: var(--dark-blue2);
+  }
+}
+.pictosimply-right-size {
+  @extend .open-sans-14r;
+}
+
+.pictohome-size {
+  @extend .open-sans-14r;
+}
+
+.padding-li-picto {
+  padding-left: 0.5rem;
+}

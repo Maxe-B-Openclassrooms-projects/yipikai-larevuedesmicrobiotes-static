@@ -1,0 +1,11 @@
+{% set component = (component|default({}))|merge({
+    name : "title-homepage",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <h2 class="h1-main">
+        La première revue scientifique française consacrée aux
+        <span class="highlight">microbiotes</span>
+        <span class="main-subtitle-p-h1"> et à leurs répercussions en santé humaine</span>
+    </h2>
+{% endblock component_content %}

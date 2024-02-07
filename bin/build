@@ -1,0 +1,93 @@
+#!/usr/bin/env php
+<?php
+use Symfony\Component\Dotenv\Dotenv;
+use Symfony\Component\ErrorHandler\Debug;
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+(new Dotenv())->bootEnv(dirname(__DIR__) . '/.env');
+umask(0000);
+
+if($_SERVER['APP_DEBUG']) {
+  Debug::enable();
+}
+
+use App\Route\Route;
+
+// removes files and non-empty directories
+function rrmdir($dir)
+{
+  if (is_dir($dir)) {
+    $files = scandir($dir);
+    foreach ($files as $file) {
+      if ('.' != $file && '..' != $file) {
+        rrmdir("$dir/$file");
+      }
+    }
+    rmdir($dir);
+  } elseif (file_exists($dir)) {
+    unlink($dir);
+  }
+}
+
+// copies files and non-empty directories
+function rcopy($src, $dst)
+{
+  if (file_exists($dst)) {
+    rrmdir($dst);
+  }
+  if (is_dir($src)) {
+    mkdir($dst);
+    $files = scandir($src);
+    foreach ($files as $file) {
+      if ('.' != $file && '..' != $file) {
+        rcopy("$src/$file", "$dst/$file");
+      }
+    }
+  } elseif (file_exists($src)) {
+    copy($src, $dst);
+  }
+}
+
+echo sprintf("\n____________________________________\n\n");
+echo sprintf("Start script Generate Static\n");
+echo sprintf("____________________________________\n\n");
+
+$dirSource = __DIR__.'/../public';
+$dirStatic = __DIR__.'/../static';
+if (!file_exists($dirStatic)) {
+  mkdir($dirStatic, 0775);
+}
+
+echo sprintf("\nNPM BUILD\n\n");
+echo sprintf("----------------------------------\n\n");
+$html = shell_exec("npm run build");
+
+echo sprintf("\nCOPY BUILD DIR\n\n");
+echo sprintf("----------------------------------\n\n");
+foreach (array('build', "images") as $dir)
+{
+  $dirSourceCopy = sprintf('%s/%s', $dirSource, $dir);
+  $dirStaticCopy = sprintf('%s/%s', $dirStatic, $dir);
+  rrmdir($dirStaticCopy);
+  rcopy($dirSourceCopy, $dirStaticCopy);
+}
+
+
+echo sprintf("\nGENERATE HTML PAGE\n\n");
+echo sprintf("----------------------------------\n\n");
+$routes = new Route();
+foreach($routes->getRoutes() as $route => $routeParameters)
+{
+  $routeFinal = str_replace("/", "", $route);
+  $html = shell_exec("php public/index.php ".($routeFinal ? : ''));
+
+  $fileStatic = sprintf('%s/%s.html', $dirStatic, $routeFinal ? : "index");
+  if (file_exists($fileStatic)) {
+    unlink($fileStatic);
+  }
+  echo sprintf("  - Generate -> /%s \n\n", $routeFinal);
+  file_put_contents($fileStatic, $html);
+}
+echo sprintf("----------------------------------\n\n");
+echo "Build Static is end\n\n";

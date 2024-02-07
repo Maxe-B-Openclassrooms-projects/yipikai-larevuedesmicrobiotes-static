@@ -1,0 +1,35 @@
+{% set component = (component|default({}))|merge({
+    name : "article-homepage",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+            <article class="section2-part1 margin-top-content-5">
+                <h3 class="section2-h2">Notre intention</h3>
+                <p class="section2-h2-p-text">Qu’ils soient utilisés depuis des milliers d’années pour la
+                    transformation
+                    de produits alimentaires, employés dans les domaines de la santé ou de l’industrie ou tout
+                    simplement
+                    présents dans l’environnement, les micro-organismes sont partout autour de nous mais aussi en
+                    nous.
+                    Organisés en écosystèmes dits microbiotes, ils jouent un rôle majeur tant au niveau
+                    physiologique que
+                    physiopathologique, certains experts considérant même le microbiote intestinal comme un « organe
+                    » à
+                    part entière. Si l’étude des microbiotes reste très récente
+                    dans l’histoire de la médecine et s’ils conservent encore une grande part de mystère, bien des
+                    données
+                    sont d’ores et déjà disponibles et les résultats publiés sont de plus en plus nombreux. </p>
+                <p class="section2-h2-p-text">Depuis 2015, la
+                    Revue des microbiotes présente les résultats les plus récents de la recherche sur les
+                    microbiotes et
+                    informe les professionnels de santé sur les répercussions de ces nouvelles connaissances en
+                    santé
+                    humaine.</p>
+                <p class="section2-h2-p-text">Cette actualité est analysée et commentée de manière indépendante,
+                    trois fois
+                    par an, par un
+                    comité scientifique rassemblant des spécialistes venant d’horizons divers.
+                <p class="section2-h2-p-text">La Revue des microbiotes
+                    bénéficie du soutien institutionnel de PiLeJe Laboratoire.</p>
+            </article>
+{% endblock component_content %}

@@ -1,0 +1,9 @@
+{% set component = (component|default({}))|merge({
+    name : "button-carrouss-next-return",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <button class="button-next-return">
+        <span class="picto basic-pictosimply-left {{ component.transitionRotate }}"></span>
+    </button>
+{% endblock component_content %}

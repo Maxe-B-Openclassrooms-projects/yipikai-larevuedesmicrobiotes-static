@@ -1,0 +1,162 @@
+/*!
+ * This file is part of the App package.
+ *
+ * (c) Yipikai <support@yipikai.studio>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../mixin/grid" as grid;
+
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+.footer {
+  background-color: var(--blue-lighter2);
+  min-height: 50rem;
+  padding: 7.2rem 0 3rem 0;
+}
+
+.footer-content-style {
+  @extend .open-sans-12r;
+}
+
+.logo-footer {
+  width: 10rem;
+  height: 12.8rem;
+}
+.margin-top-footer {
+  margin-top: 5.2rem;
+}
+.margin-legal-mention {
+  margin-top: 11.2rem
+}
+.content-top {
+  @include flex.display(flex);
+  @include flex.justify-content(center);
+  @include flex.align-items(center);
+
+  @media #{config.$media-md-max} {
+    @include flex.display(flex);
+    @include flex.direction(column);
+    @include flex.align-items(center);
+    text-align: center;
+  }
+}
+
+.content-text {
+  display: flex;
+  padding: 1rem 0 1rem 3.5rem;
+  line-height: 1.8rem;
+  @media #{config.$media-md-max} {
+    padding: 0;
+  }
+}
+
+.content-pileje {
+  @include flex.display(flex);
+  @include flex.direction(column);
+  @include flex.align-content(center);
+  @include flex.align-items(center);
+  @include flex.justify-content(center);
+  height: 24rem;
+}
+
+.content-pileje {
+  &-flex {
+    @include flex.display(flex);
+    @include flex.direction(column);
+    @include flex.align-content(center);
+    @include flex.align-items(center);
+    @include flex.justify-content(center);
+    @include global.radius(3rem);
+    max-height: 21.6rem;
+    max-width: 46rem;
+    padding: 3rem;
+    background-color: var(--color-white);
+
+    @media #{config.$media-md-max} {
+      grid-column: 1;
+      grid-row: 2;
+      margin: auto;
+    }
+  }
+}
+
+.content-pileje {
+  &-title {
+    @extend .red-hat-20;
+    color: var(--dark-blue2);
+    max-width: 38rem;
+    padding-bottom: 2rem;
+    text-align: center;
+
+    @media #{config.$media-md-max} {
+      @include flex.display(flex);
+      @include flex.wrap(wrap);
+    }
+  }
+}
+
+/*.grid-container-bottom {
+  @include grid.display(grid);
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  @media #{config.$media-md-max} {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
+
+.container-bottom-flex {
+  @include flex.display(flex);
+  @include flex.direction(row);
+  @include flex.justify-content(space-between);
+  padding: 0 8.5rem;
+
+  @media #{config.$media-md-max} {
+    @include flex.display(flex);
+    @include flex.direction(column-reverse);
+    padding: 0;
+    text-align: center;
+  }
+}*/
+
+.links-footer {
+  @include flex.display(flex);
+  @include flex.justify-content(flex-end);
+  @include flex.align-content(center);
+  @include flex.align-items(center);
+  @include flex.wrap(wrap);
+  @media #{config.$media-sm-max} {
+    @include flex.wrap(wrap);
+    margin: 0 0 2rem 0;
+  }
+
+  & .link-puce-footer {
+    margin-right: 1.5rem;
+    color: var(--color-black);
+  }
+
+  & .link-footer {
+    color: var(--color-black);
+  }
+}
+
+
+.link-puce-footer::before {
+  content: '•';
+  margin-right: 1.5rem;
+
+}
+
+.links-footer > .link-puce-footer:first-child::before {
+  content: none;
+}
+
+.links-footer > .link-puce-footer:last-child {
+  margin-right: 0;
+}

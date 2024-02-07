@@ -1,0 +1,12 @@
+{% set component = (component|default({}))|merge({
+    name : "button",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <button
+       aria-label="accèder aux numéros"
+       aria-description="Découvrir ce numéro"
+       class="button {{ component.colorButton }}">
+        <span class="value limit-lines">D&eacute;couvrir ce num&eacute;ro</span>
+    </button>
+{% endblock component_content %}

@@ -1,0 +1,15 @@
+{% set component = (component|default({}))|merge({
+    name : "card-full-image",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <div class="card-full-image-contents">
+        <div class="image-zoom">
+            <img class="card-full-image-size" src="images/visuel-genevieve-hery-arnaud.jpeg" alt="photographie du Professeure Genevieve Hery-Arnaud ">
+        </div>
+        <div class="card-full-image-content-text">
+            <h3 class="card-full-image-content-title">Pr Geneviève Héry-Arnaud</h3>
+            <p class="card-full-image-content-text-text">PharmD, PhD. Microbiologiste, INSERM UMR 1078, Université de Brest, CHRU Brest</p>
+        </div>
+    </div>
+{% endblock component_content %}

@@ -1,0 +1,19 @@
+{% set component = (component|default({}))|merge({
+    name : "card-video",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+               <div class="card-video">
+                   <div class="card-video-title-content">
+                       <h1 class="card-video-title">
+                           <span class="card-video-title-title">La Revue des Microbiotes : une vocation partagée</span>
+                           <span class="card-video-title-content-text">Découvrez ce qui anime les personnes qui en sont à l’origine et celles qui la rédigent.</span>
+                           <span class="card-video-title-content-text">Merci à tous les chercheurs et médecins ayant contribué aux numéros déjà publiés !</span>
+                       </h1>
+                   </div>
+                   <div class="card-video-content-img">
+                       <img src="/images/pileje_thumb_video.jpg" alt="Image" class="card-image-video">
+                       {% include "components/button-play-without-text.html.twig"%}
+                   </div>
+               </div>
+{% endblock component_content %}

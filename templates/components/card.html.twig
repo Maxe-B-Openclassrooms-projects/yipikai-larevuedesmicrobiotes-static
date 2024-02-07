@@ -1,0 +1,21 @@
+{% set component = (component|default({}))|merge({
+    name : "card",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <div class="card card-padding-content">
+        <div class="card-title-content">
+            <span class="card-puce-numbers">Numéro 26</span>
+            <h1 class="card-title">
+                <span class="card-title-text">Dossier thématique</span>
+                <span class="card-title-title">Microbiotes et rhumatologie : un nouvel axe de recherche</span>
+            </h1>
+        </div>
+        <a href="/number" class="card-content-img">
+            <img src="/images/LRDM26-Vignette-Web.jpg" alt="Image" class="card-img">
+        </a>
+        <p class="card-date-description">
+            <span class="card-description">Juin 2023</span>
+        </p>
+    </div>
+{% endblock component_content %}

@@ -1,0 +1,73 @@
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+.card {
+  @include flex.display(flex);
+  @include flex.direction(column);
+  border-radius: 2rem;
+  background-color: var(--blue-lighter2);
+  max-width: 36.4rem;
+  min-height: 51rem;
+  margin: 1rem 0;
+  box-shadow: 0 0.5rem 3rem var(--box-shadow-opacity-00);
+  transition: all 0.5s ease-out;
+
+  &:hover {
+    background-color: var(--blue-lighter3-card);
+    box-shadow: 0 0.5rem 3rem var(--box-shadow-opacity-15);
+
+    .card-title-title {
+      color: var(--light-blue1);
+    }
+  }
+
+  &-padding-content {
+    padding: 2rem 1rem;
+  }
+
+  &-title-content {
+    text-align: center;
+    padding: 1rem 0;
+  }
+  &-content-img {
+    @include flex.display(flex);
+    @include flex.justify-content(center);
+  }
+
+  &-img {
+    @include flex.display(flex);
+    @include global.radius(0.5rem);
+    max-width: 18.8rem;
+    max-height: 26rem;
+    object-fit: contain;
+  }
+
+  &-title {
+    @include flex.display(flex);
+    @include flex.direction(column);
+  }
+
+  &-title-text {
+    @extend .open-sans-12r;
+    color: var(--dark-blue2);
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  &-date-description {
+    @extend .open-sans-12r;
+    color: var(--dark-blue2);
+    margin:auto;
+  }
+
+  &-title-title {
+    @extend .red-hat-20;
+    color: var(--dark-blue2);
+
+    & .limit-lines {
+      @include global.truncate-lines(2);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{% set component = (component|default({}))|merge({
+    name : "text-pages-titles",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <p class="margin-top-content-1">
+        <span class="text-font-p1">Une plume indépendante au service de l’information sur les microbiotes.</span>
+        <span class="text-font-p2 margin-top-content-1">Le comité scientifique réuni des spécialistes venant d’horizons divers qui ont uni leurs compétences et leurs plumes pour nous parler des microbiotes, acteurs majeurs de notre santé.</span>
+    </p>
+{% endblock component_content %}

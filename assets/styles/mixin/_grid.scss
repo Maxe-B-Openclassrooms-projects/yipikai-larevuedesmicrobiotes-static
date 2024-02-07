@@ -1,0 +1,216 @@
+@use "sass:math";
+
+// Set the grid defaults
+// -----------------------------------------------------------------------------
+$column-count: 16 !default;
+$gutter-size: 0.5rem !default;
+$medium: 768px;
+$large: 992px;
+
+// Find the width of 1 column, based upon the column count
+// -----------------------------------------------------------------------------
+@function find_column_width($columns: $column-count) {
+  $column-width: math.div(100%, $columns);
+
+  @return $column-width;
+}
+
+// --------------------------------------------------
+// Grid mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+@mixin display($display: grid) {
+  display: -webkit-box;
+  display: -webkit-#{$display};
+  display: -ms-#{$display}box; // IE10 uses -ms-flexbox
+  display: -moz-#{$display}; // IE11
+  display: $display;
+}
+
+@mixin template-columns($value) {
+  grid-template-columns: $value;
+  -ms-grid-columns:$value;
+}
+
+@mixin template-rows($value) {
+  grid-template-rows: $value;
+  -ms-grid-rows:$value;
+}
+@mixin column-gap($value) {
+  -moz-column-gap: $value;
+  -webkit-column-gap: $value;
+  column-gap: $value;
+}
+@mixin row-gap($value) {
+  -moz-row-gap: $value;
+  -webkit-row-gap: $value;
+  row-gap: $value;
+}
+
+@mixin gris-columns-row($type, $start, $end) {
+  grid-#{$type}: #{$start} / #{$end};
+  -ms-grid-#{$type}: $start;
+  -ms-grid-#{$type}-span: $end - $start;
+}
+
+@mixin column($start, $end) {
+  @include gris-columns-row(column, $start, $end);
+}
+
+@mixin row($start, $end) {
+  @include gris-columns-row(row, $start, $end);
+}
+
+// Create a grid container to house the columns
+// -----------------------------------------------------------------------------
+@mixin create($nested: false, $gutters: true) {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+  @if $nested {
+    flex: 0 1 auto;
+  }
+
+  @if $gutters {
+    > * {
+      padding-left: $gutter-size;
+      padding-right: $gutter-size;
+      box-sizing: border-box;
+    }
+  }
+}
+
+// Create a column of the grid
+// -----------------------------------------------------------------------------
+@mixin create-column($columns: 0, $md: null, $lg: null) {
+  $width: find_column_width();
+  $flex-basis: $width * $columns;
+
+  // Setting $columns = 0 will set the column to be auto width and fill available space
+  @if ($columns == 0) {
+    flex: 1 0 0;
+    width: auto;
+  } @else {
+    flex: 0 0 $flex-basis;
+    min-width: $flex-basis;
+  }
+
+  // Set the column width on medium screens
+  @if ($md != null) {
+    @media screen and (min-width: $medium) {
+      $flex-basis: $width * $md;
+      @if ($md == 0) {
+        flex: 1 0 0;
+        width: auto;
+      } @else {
+        flex: 0 0 $flex-basis;
+        min-width: $flex-basis;
+      }
+    }
+  }
+
+  // Set the column width on large screens
+  @if ($lg != null) {
+    @media screen and (min-width: $large) {
+      $flex-basis: $width * $lg;
+      @if ($lg == 0) {
+        flex: 1 0 0;
+        width: auto;
+      } @else {
+        flex: 0 0 $flex-basis;
+        min-width: $flex-basis;
+      }
+    }
+  }
+}
+
+// Create a column for a specific breakpoint
+// Never needed if purely using grid as mixins
+// -----------------------------------------------------------------------------
+@mixin create-mq-column($breakpoint: 'md', $columns: 0) {
+  $width: find_column_width();
+  $flex-basis: $width * $columns;
+
+  @if ($breakpoint == 'lg') {
+    @media screen and (min-width: $large) {
+      @if ($columns == 0) {
+        flex: 1 0 0;
+        width: auto;
+      } @else {
+        flex: 0 0 $flex-basis;
+        min-width: $flex-basis;
+      }
+    }
+  } @else {
+    @media screen and (min-width: $medium) {
+      @if ($columns == 0) {
+        flex: 1 0 0;
+        width: auto;
+      } @else {
+        flex: 0 0 $flex-basis;
+        min-width: $flex-basis;
+      }
+    }
+  }
+}
+
+// Create a column of the grid
+// -----------------------------------------------------------------------------
+@mixin create-column-offset($columns: 0, $md: null, $lg: null) {
+  $width: find_column_width();
+  $flex-basis: $width * $columns;
+
+  // Setting $columns = 0 will set the column to be auto width and fill available space
+  @if ($columns == 0) {
+
+  } @else {
+    margin-left: $flex-basis;
+  }
+
+  // Set the column width on medium screens
+  @if ($md != null) {
+    @media screen and (min-width: $medium) {
+      $flex-basis: $width * $md;
+      @if ($md == 0) {
+      } @else {
+        margin-left: $flex-basis;
+      }
+    }
+  }
+
+  // Set the column width on large screens
+  @if ($lg != null) {
+    @media screen and (min-width: $large) {
+      $flex-basis: $width * $lg;
+      @if ($lg == 0) {
+      } @else {
+        margin-left: $flex-basis;
+      }
+    }
+  }
+}
+
+// Create a offset column for a specific breakpoint
+// Never needed if purely using grid as mixins
+// -----------------------------------------------------------------------------
+@mixin create-mq-column-offset($breakpoint: 'md', $columns: 0) {
+  $width: find_column_width();
+  $flex-basis: $width * $columns;
+
+  @if ($breakpoint == 'lg') {
+    @media screen and (min-width: $large) {
+      @if ($columns == 0) {
+      } @else {
+        margin-left: $flex-basis;
+      }
+    }
+  } @else {
+    @media screen and (min-width: $medium) {
+      @if ($columns == 0) {
+      } @else {
+        margin-left: $flex-basis;
+      }
+    }
+  }
+}

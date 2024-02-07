@@ -1,0 +1,56 @@
+version: "3"
+
+services:
+
+  nginx:
+    container_name: ${COMPOSE_PROJECT_NAME}-nginx
+    image:          australproject/nginx:1.20
+    networks:
+      - traefik
+    restart:        unless-stopped
+    depends_on:
+      - php
+    volumes:
+      - "./../:/home/www-data/website"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.redirect-to-https.redirectScheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectScheme.permanent=true"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${DOMAIN}`) || HostRegexp(`{subdomain:[a-z]+}.${DOMAIN}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.entryPoints=web"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.middlewares=redirect-to-https@file"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-https.rule=Host(`${DOMAIN}`) || HostRegexp(`{subdomain:[a-z]+}.${DOMAIN}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-https.entryPoints=websecure"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-https.tls=true"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-https.tls.certresolver=${CERT_RESOLVER}"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-https.tls.domains[0].main=${DOMAIN}"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-https.tls.domains[0].sans=*.${DOMAIN}"
+    environment:
+      TZ:           ${TZ}
+      APP_DEBUG:    ${APP_DEBUG}
+      APP_ENV:      ${APP_ENV}
+      DOMAIN:       ${DOMAIN}
+      PUBLIC_DIR:   public
+      HTTPS:        true
+    links:
+      - php
+
+  php:
+    container_name: ${COMPOSE_PROJECT_NAME}-php
+    image:          australproject/php:8.1
+    restart:        unless-stopped
+    networks:
+      - traefik
+    volumes:
+      - "./../:/home/www-data/website"
+      - "./../var/docker-log/php:/var/log"
+    environment:
+      TZ:        ${TZ}
+      APP_ENV:   ${APP_ENV}
+      APP_DEBUG: ${APP_DEBUG}
+      DOMAIN:    ${DOMAIN}
+
+networks:
+  traefik:
+    external:
+      name: traefik

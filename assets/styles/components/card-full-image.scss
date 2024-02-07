@@ -1,0 +1,63 @@
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+
+.card-full-image-contents {
+  &:hover {
+      .card-full-image-content-title  {
+        color: var(--light-blue2);
+      }
+      .card-full-image-size {
+      transform: scale(1.05);
+      box-shadow: 0 5px 30px var(--box-shadow-opacity--10);
+    }
+  }
+}
+
+  .card-full-image-size {
+    transition: transform 0.5s ease-out;
+    transform-origin: 50% 50%;
+    height: 30.4rem;
+    box-shadow: 0 5px 30px var(--box-shadow-opacity--00);
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .card-full-image-content-text {
+    @include flex.display(flex);
+    @include flex.direction(column);
+    @include flex.justify-content(center);
+    @include flex.align-content(center);
+    padding: 2rem 2rem 2.8rem 2rem;
+    width:22.8rem;
+  }
+
+
+  .card-full-image-content-title {
+    @extend .red-hat-20;
+    color: var(--dark-blue2);
+    transition: color 0.3s ease-out;
+    padding-bottom:1rem;
+  }
+
+  .card-full-image-content-text-text {
+    @extend .open-sans-12r;
+
+  }
+  .image-zoom {
+    @include global.radius(2rem);
+    width: 26.8rem;
+    overflow: hidden;
+  }
+
+
+  /******** Media Queries ******/
+
+@media (max-width: config.$breakpoints-sm) {
+  .image-zoom {
+    min-width: 32.2rem;
+    max-height: 37.7rem;
+  }
+}

@@ -1,0 +1,55 @@
+/*!
+ * This file is part of the App package.
+ *
+ * (c) Yipikai <support@yipikai.studio>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+
+.h2toh1 {
+  @extend .red-hat-58;
+  color: var(--dark-blue1);
+  &--dark-blue2 {
+    @extend .red-hat-58;
+    color: var(--dark-blue2);
+  }
+}
+
+.h3toh2 {
+  @extend .red-hat-38;
+}
+
+
+.h4toh3 {
+  @extend .red-hat-20;
+}
+
+
+.text-font-p1 {
+  display: block;
+  @extend .open-sans-16;
+  padding-bottom: 1rem;
+}
+
+.text-font-p2 {
+  @extend .open-sans-16r;
+  line-height: 2.8rem !important;
+  &-left {
+    text-align:left;
+  }
+}
+
+.text-font-p3 {
+  @extend .open-sans-14r;
+}
+
+.text-font-p4 {
+  @extend .open-sans-12r;
+}

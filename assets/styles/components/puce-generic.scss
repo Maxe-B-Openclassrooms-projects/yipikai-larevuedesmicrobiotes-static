@@ -1,0 +1,50 @@
+/*!
+ * This file is part of the App package.
+ *
+ * (c) Yipikai <support@yipikai.studio>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+
+
+/*
+Rassembler tous les types de puces ici */
+
+
+
+.info-pdf {
+  @include global.radius(0.5rem);
+  @extend .red-hat-12m;
+  background-color:var(--color-grey-light);
+  color:var(--green1);
+  width: 3.6rem;
+  text-align:center;
+  margin-left:1rem;
+}
+
+
+.card-puce-numbers {
+  @include global.radius(5rem);
+  @extend .open-sans-12r;
+  display: inline-block;
+  background-color: var(--light-blue1);
+  color: var(--color-white);
+  min-width: 8.5rem;
+  max-height: 2.6rem;
+  text-align: center;
+  padding: 0.5rem 0.5rem 0.6rem 0.5rem;
+
+  &--transparent {
+    @include flex.display(flex);
+    @include flex.align-items(center);
+    background-color: transparent;
+    border: 1px solid;
+  }
+}

@@ -1,0 +1,7 @@
+{% set component = (component|default({}))|merge({
+    name : "title-pages",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <h2 class="h2toh1--dark-blue2">Le comité scientifique</h2>
+{% endblock component_content %}

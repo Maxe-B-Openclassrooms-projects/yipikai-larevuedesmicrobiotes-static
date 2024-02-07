@@ -1,0 +1,67 @@
+{% extends 'layout/layout.html.twig' %}
+{% block content_body_side %}
+    <div class="container-width container-margin-auto">
+        <div class="grid">
+            <div class="row">
+                {% include "components/breadcrumbs.html.twig" %}
+            </div>
+        </div>
+    </div>
+    <div class="container-width container-margin-auto">
+        <div class="grid margin-top-content-5">
+            <div class="row">
+                <div class="col--md-offset-0 col--sm-4">
+                    {% include "components/titles-pages.html.twig" %}
+                </div>
+                <div class="col--md-offset-1 col--sm-offset-1 col--sm-7">
+                    {% include "components/text-pages-titles.html.twig" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-width container-margin-auto">
+        <div class="grid margin-top-content-5">
+            <div class="row flex-justify-center">
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+            </div>
+            <div class="row flex-justify-center">
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+            </div>
+            <div class="row flex-justify-center">
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+            </div>
+            <div class="row flex-justify-center">
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+                <div class="col--md-5 col--lg-4">
+                    {% include "components/card.html.twig" %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content_body_side %}

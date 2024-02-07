@@ -1,0 +1,27 @@
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+/*************************/
+/* Class generic display */
+/*************************/
+
+.margin-top-content-1 {
+  margin-top:1rem;
+}
+
+.margin-top-content-3 {
+  margin-top:3rem;
+}
+.margin-top-content-5 {
+  margin-top:5rem;
+}
+.margin-top-content-10 {
+  margin-top:10rem;
+}
+.margin-top-content-15 {
+  margin-top:15rem;
+}
+
+

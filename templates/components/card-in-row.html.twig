@@ -1,0 +1,22 @@
+{% set component = (component|default({}))|merge({
+    name : "card-on-row",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <div class="card-in-row card-in-row-padding-content">
+        <div class="card-in-row-content-img">
+            <img src="/images/LRDM26-Vignette-Web.jpg" alt="Image" class="card-img">
+        </div>
+        <div class="card-in-row-title-content">
+            <div class="container-numbers-date-card">
+                <span class="card-puce-numbers">Numéro 26</span>
+                <span class="card-in-row-date-description">Juin 2023</span>
+            </div>
+            <h2 class="card-in-row-title">
+                <span class="card-in-row-title-text">Dossier thématique</span>
+                <span class="card-in-row-title-title"><span class="highlight">Microbiotes</span> et allergies</span>
+                <span class="card-in-row-title-content-text">…Au cours de notre voyage dans le monde des <span class="highlight">microbiotes</span> et de leurs relations avec leur hôte, arrêtons-nous dans ce numéro 5, sur les interactions entre nos <span class="highlight">microbiotes</span> et notre système immunitaire. Nous découvrirons que nos <span class="highlight">microbiotes</span> et surtout notre <span class="highlight">microbiote</span> intestinal est absolument fondamental pour que notre système…</span>
+            </h2>
+        </div>
+    </div>
+{% endblock component_content %}

@@ -1,0 +1,70 @@
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <div class="background-img">
+        <div class="background-img-2">
+            <section class="container-width container-margin-auto">
+                <div class="grid margin-top-content-5">
+                    <div class="row">
+                        <div class="col--xs-12">
+                            {% include "components/title-homepage.html.twig" %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col--xs-12 margin-top-content-5">
+                            {% include "components/coversx3-image.html.twig" %}
+                        </div>
+                    </div>
+                    <div class="grid container-margin-auto">
+                        <div class="row">
+                            <div class="col--xs-12 margin-top-content-15">
+                                <div class="main-section1-puce-title-buttons">
+                                    <span class="card-puce-numbers card-puce-numbers--transparent">Dernier numéro : Numéro 26</span>
+                                    <h2 class="main-section1-title2">Microbiotes et rhumatologie : un nouvel axe de recherche</h2>
+                                    <div class="section1-content-buttons">
+                                        {% include "components/button.html.twig" with {component:{colorButton:"green"}} %}
+                                        {% include "components/button.html.twig" %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="row">
+                            <div class="col--xs-12 margin-top-content-10">
+                                {% include "components/card-video.html.twig" %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="container-width container-margin-auto margin-top-content-10">
+        <div class="grid margin-top-content-10">
+            <div class="row">
+                <div class="col--xs-8">
+                    {% include "components/article-homepage.html.twig" %}
+                </div>
+                <div class="col--xs-4">
+                    {% include "components/a-side-green-homepage.html.twig" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-part3-scientist-commitee margin-top-content-15">
+    <h2 class="section2-h2">Le comité scientifique</h2>
+    <p class="section2-h2-p-text">Une plume indépendante au service de l’information sur les microbiotes</p>
+    <div class="container-width">
+        <div class="grid">
+            <div class="row">
+                <div class="col--xs-12">
+                    {% include "components/swiper-carrousel.html.twig" %}
+                </div>
+                <div class="col--xs-offset-4 col--xs-4">
+                    {% include "components/button.html.twig" with {component:{colorButton:"green"}} %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock component_content %}

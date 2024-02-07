@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" dir="ltr" lang="fr-FR">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" dir="ltr" lang="fr-FR">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" dir="ltr" lang="fr-FR">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]>
+<html lang="fr">
+<![endif]-->
+{% apply spaceless %}
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  {% block content_head_meta %}
+    {% include 'layout/head.html.twig' %}
+  {% endblock %}
+  {% if webpack.css is defined %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ webpack.css }}" />
+  {% endif %}
+</head>
+{% endapply %}
+{% apply spaceless %}
+  <body class="{% block body_class %}container-grid-test page page-{{ vars.code }}{% endblock %}" data-page-keyname="{{ vars.code }}" data-uri="{{ vars.uri }}">
+    {% include "layout/header.html.twig" %}
+    <main id="main-content" class="main-content animate-page main" role="main" {% block data_dashboard %}{% endblock %}>
+      {% block content_body_side %}{% endblock %}
+    </main>
+    {% include "layout/footer.html.twig" %}
+    {% if webpack.js is defined -%}
+      <script src="{{ webpack.js }}"></script>
+      <script src="{{ webpack.runtime }}"></script>
+    {%- endif %}
+  </body>
+{% endapply %}
+</html>

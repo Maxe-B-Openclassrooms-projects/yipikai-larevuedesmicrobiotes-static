@@ -1,0 +1,81 @@
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+.block-component-button-container {
+  margin: 1rem 0;
+}
+
+.button-play {
+  @include flex.display(inline-flex);
+  @include flex.justify-content(center);
+  @include flex.align-content(center);
+  @include flex.align-items(center);
+  @include global.radius(8rem);
+  height: 8rem;
+  background-color: var(--color-white);
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    & .picto-btn-play {
+      background-color: var(--green2);
+      box-shadow: 0 0.5rem 2rem var(--box-shadow-opacity-15);
+    }
+
+    & .value-btn-play {
+      color: var(--green2);
+    }
+  }
+}
+
+.picto-btn-play {
+  @include flex.display(flex);
+  @include flex.justify-content(center);
+  @include flex.align-content(center);
+  @include flex.align-items(center);
+  @include global.radius(8rem);
+  @include global.transition-default(all, 300ms);
+  background-color: var(--green1);
+  color: var(--color-white);
+  font-size: 3.2rem;
+  width: 8rem;
+  height: 8rem;
+}
+
+.value-btn-play {
+  @include global.transition-default(all, 300ms);
+  font-family: var(--font-family-red-hat-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--green1);
+  padding: 0 1rem;
+}
+
+/*** Button without text declared here ***/
+
+.button-play-without-text {
+  @include flex.display(inline-flex);
+  @include flex.justify-content(center);
+  @include flex.align-content(center);
+  @include flex.align-items(center);
+  @include global.radius(8rem);
+  height: 8rem;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  left: 43%;
+
+  &:hover {
+    & .picto-btn-play {
+      background-color: var(--green2);
+      box-shadow: 0 0.5rem 2rem var(--box-shadow-opacity-15);
+    }
+
+    & .value-btn-play {
+      color: var(--green2);
+    }
+  }
+}

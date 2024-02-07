@@ -1,0 +1,9 @@
+{% set component = (component|default({}))|merge({
+    name : "button-play-without-text",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <button class="button-play-without-text">
+        <span class="picto-btn-play basic-pictoplay"></span>
+    </button>
+{% endblock component_content %}

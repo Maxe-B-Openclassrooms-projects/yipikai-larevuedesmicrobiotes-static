@@ -1,0 +1,11 @@
+{% set component = (component|default({}))|merge({
+    name : "coversx3-image",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+<div class="main-section1-main-img">
+    <img src="/images/LRDM26-Vignette-Web.jpg" class="main-card-img-transform img-transform-left" alt="image de couverture des revues">
+    <img src="/images/LRDM26-Vignette-Web.jpg" class="main-card-img-transform img-transform-right" alt="image de couverture des revues">
+    <img src="/images/LRDM26-Vignette-Web.jpg" class="main-card-img-transform main-card-img-transform-absolute" alt="image de couverture des revues">
+</div>
+{% endblock component_content %}

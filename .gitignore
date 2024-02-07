@@ -1,0 +1,26 @@
+###> system ###
+.DS_Store
+._*
+.env
+.npmrc
+###< system ###
+
+/static
+###> ide ###
+.idea
+.vscode
+*.code-workspace
+.history
+###< ide ###
+
+###> project ###
+/var
+/vendor
+###< project ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/*
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

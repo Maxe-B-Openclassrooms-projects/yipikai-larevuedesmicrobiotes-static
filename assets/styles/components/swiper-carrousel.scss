@@ -1,0 +1,41 @@
+.relative-position {
+  position: relative;
+}
+.swiper {
+  width: 100vw;
+  height: 50rem;
+}
+.slide-hide {
+  opacity: 0.15;
+}
+.slide-active {
+  opacity: 1;
+}
+
+.swiper-content-flex {
+  position:relative;
+  display:flex;
+  flex-direction: row;
+  justify-content:flex-start ;
+  align-content: center;
+}
+
+
+
+.swiper-content-style {
+
+}
+
+.position-button-absolute-left {
+  position: absolute;
+  right:-96px;
+  top: 26%;
+  z-index: 1001;
+}
+
+.position-button-absolute-right {
+  position: absolute;
+  left:196px;
+  top: 26%;
+  z-index: 1001;
+}

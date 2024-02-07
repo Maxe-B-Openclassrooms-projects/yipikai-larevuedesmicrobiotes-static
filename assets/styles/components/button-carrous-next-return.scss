@@ -1,0 +1,54 @@
+/*!
+ * This file is part of the App package.
+ *
+ * (c) Yipikai <support@yipikai.studio>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+.block-component-button-container {
+  margin: 1rem 0;
+}
+
+.button-next-return {
+  @include flex.display(inline-flex);
+  @include flex.justify-content(center);
+  @include flex.align-content(center);
+  @include flex.align-items(center);
+  @include global.radius(8rem);
+  background-color:var(--color-white);
+  border:none;
+  cursor: pointer;
+  &:hover {
+    color:var(--green2);
+  }
+
+
+  .picto {
+    @include flex.display(flex);
+    @include flex.justify-content(center);
+    @include flex.align-content(center);
+    @include flex.align-items(center);
+    @include global.radius(8rem);
+    @include global.transition-default(all, 300ms);
+    background-color:var(--green1);
+    color:var(--color-white);
+    font-size:2.4rem;
+    width:6rem;
+    height:6rem;
+    &:hover {
+      background-color:var(--green2);
+      box-shadow: 0 0.5rem 2rem var(--box-shadow-opacity-15);
+    }
+  }
+}
+
+.rotate-picto {
+  @include global.rotate(180deg);
+}

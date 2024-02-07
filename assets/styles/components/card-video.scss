@@ -1,0 +1,69 @@
+/*!
+ * This file is part of the App package.
+ *
+ * (c) Yipikai <support@yipikai.studio>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+.card-video {
+  @include flex.display(flex);
+  @include flex.direction(row);
+  @include global.radius(2rem);
+  background-color: var(--color-white);
+  box-shadow: 0 0.5rem 3rem var(--box-shadow-opacity-00);
+  transition: all 0.3s ease-out;
+  position: relative;
+  padding: 0.5rem;
+  &:hover {
+    background-color: var(--blue-lighter3-card);
+    box-shadow: 0 0.5rem 3rem var(--box-shadow-opacity-15);
+
+    .card-video-title-title {
+      color: var(--light-blue1);
+    }
+  }
+
+  .card-video-title-content {
+    @include flex.display(flex);
+    @include flex.align-content(center);
+    @include flex.justify-content(center);
+    @include flex.align-items(center);
+    padding: 5rem;
+
+  }
+  &-content-img {
+    @include flex.display(flex);
+    @include flex.justify-content(center);
+    position: relative;
+  }
+
+  .card-image-video {
+    @include global.radius(1.5rem);
+    max-width: 60rem;
+    min-height: 39rem;
+  }
+
+  &-title {
+    @include flex.display(flex);
+    @include flex.direction(column);
+    max-width: 42rem;
+  }
+
+
+  &-title-title {
+    @extend .red-hat-38;
+    color: var(--dark-blue2);
+    padding-bottom: 2rem;
+  }
+
+  &-title-content-text {
+    @extend .red-hat-15r;
+    margin-bottom: 1rem;
+  }
+}

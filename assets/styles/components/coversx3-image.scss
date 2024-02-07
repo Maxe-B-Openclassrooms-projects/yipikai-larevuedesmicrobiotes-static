@@ -1,0 +1,45 @@
+/*!
+ * This file is part of the App package.
+ *
+ * (c) Yipikai <support@yipikai.studio>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+.main-section1-main-img{
+  position:relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+.img-transform-right {
+  @include global.rotate(8deg);
+  margin-left: 3.8rem;
+
+}
+.img-transform-left {
+  @include global.rotate(-8deg);
+  margin-right: 3.8rem;
+}
+.main-card-img-transform {
+  @include flex.display(flex);
+  @include global.radius(0.5rem);
+  background-color: var(--blue-lighter3-card);
+  box-shadow: 0 0.5rem 3rem var(--box-shadow-opacity-15);
+  max-width: 36rem;
+  max-height: 49rem;
+  object-fit: contain;
+  margin-top: 8rem;
+
+  &-absolute {
+    position:absolute;
+    bottom: 3rem;
+    z-index: 1;
+  }
+}

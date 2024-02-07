@@ -1,0 +1,20 @@
+{% set component = (component|default({}))|merge({
+    name : "article-homepage",
+}) %}
+{% extends "components/base/component.html.twig" %}
+{% block component_content %}
+    <ol class="breadcrumb margin-top-content-3">
+        <li class="bread-style">
+            <a href="/">
+                <span class="picto basic-pictohome pictohome-size"></span>
+                <span class="padding-li-picto">Accueil</span>
+            </a>
+        </li>
+        <li class="picto basic-pictosimply-right pictosimply-right-size"></li>
+        <li class="bread-style">
+            <a href="/numbers">
+                <span>les numéros</span>
+            </a>
+        </li>
+    </ol>
+{% endblock component_content %}

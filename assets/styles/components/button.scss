@@ -1,0 +1,86 @@
+/*!
+ * This file is part of the App package.
+ *
+ * (c) Yipikai <support@yipikai.studio>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@use "../mixin/flex" as flex;
+@use "../mixin/global" as global;
+@use "../config/_font" as font;
+@use "../config/config" as config;
+
+.block-component-button-container {
+  margin: 1rem 0;
+}
+
+.button {
+  @include flex.display(inline-flex);
+  @include flex.justify-content(center);
+  @include flex.align-content(center);
+  @include flex.align-items(center);
+  @include global.radius(6rem);
+  @extend .red-hat-20;
+ // @include global.transition-default(all, 300ms);
+  height: 6rem;
+  min-width: 17rem;
+  background-color: var(--color-white);
+  box-shadow: 0 5px 20px var(--box-shadow-opacity--10);
+  white-space: normal;
+  color: var(--green1);
+  border: none;
+  padding: 0.5rem 4.5rem;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  margin: 1rem;
+  &:hover {
+    color: var(--green2);
+    box-shadow: 0 0.5rem 2rem var(--box-shadow-opacity-15);
+  }
+    & .limit-lines {
+      @include global.truncate-lines(2);
+    }
+
+
+  &.blue {
+    box-shadow: none;
+    color: var(--color-white);
+    background-color: var(--light-blue1);
+    &:hover {
+      box-shadow: 0 0.5rem 2rem var(--box-shadow-opacity-15);
+      background-color: var(--light-blue2);
+    }
+  }
+
+  &.green {
+    color: var(--color-white);
+    background-color: var(--green1);
+    box-shadow: none;
+    &:hover {
+      color: var(--color-white);
+      background-color: var(--green2);
+      box-shadow: 0 0.5rem 2rem var(--box-shadow-opacity-15);
+    }
+  }
+
+  &.green-green {
+    color: var(--green1);
+    background-color: var(--green-light1);
+    box-shadow: none;
+    &:hover {
+      color: var(--green2);
+      background-color: var(--green-light1);
+      box-shadow: 0 0.5rem 2rem var(--box-shadow-opacity-15);
+
+    }
+  }
+
+  /*** Placement du picto ***/
+  .value + .picto,
+  .picto + .value {
+    margin-left: 1rem;
+  }
+}
+
